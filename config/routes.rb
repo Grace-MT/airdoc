@@ -8,4 +8,24 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
+
+  devise_for :users
+
+  # Doctors
+  resources :doctors, only: [:new, :create] # Assuming you may want to separate doctors from regular users
+
+  # Consultations
+  resources :consultations, only: [:new, :create, :index] do
+    resources :appointments, only: [:create]
+  end
+
+  # Appointments
+  resources :appointments, only: [:show, :update]
+
+  # Users
+  resources :users, only: [] do
+    resources :appointments, only: [:index] # For patients to view their appointments
+  end
 end
+
+# commenting for jokes
