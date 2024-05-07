@@ -1,0 +1,41 @@
+<h2>Book a consultation</h2>
+
+<%= simple_form_for @consultation do |f|%>
+
+  <div>
+     <%= f.input :price_per_hour %>
+  </div>
+
+  <div>
+   <%= f.input :languages_spoken %>
+  </div>
+
+  <div>
+   <%= f.input :pretty_title %>
+  </div>
+
+    <div>
+   <%= f.input :location_city %>
+  </div>
+
+    <div>
+   <%= f.input :speciality %>
+  </div>
+
+    <div>
+   <%= f.input :years_of_experience %>
+  </div>
+
+    <div>
+   <%= f.input :availability %>
+  </div>
+
+    <div>
+   <%= f.input :duration %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, "Create Consultation" %>
+  </div>
+
+<% end %>

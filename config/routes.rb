@@ -15,10 +15,10 @@ Rails.application.routes.draw do
   # # Doctors
   # resources :doctors, only: [:new, :create] # Assuming you may want to separate doctors from regular users
 
-  # # Consultations
-  # resources :consultations, only: [:new, :create, :index] do
-  #   resources :appointments, only: [:create]
-  # end
+  # Consultations
+    resources :consultations, only: [:new, :create, :index, :show] do
+      resources :appointments, only: [:create]
+    end
 
   # # Appointments
   # resources :appointments, only: [:show, :update]
