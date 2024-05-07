@@ -27,3 +27,5 @@ Rails.application.routes.draw do
     resources :appointments, only: [:index] # For patients to view their appointments
   end
 end
+
+# commenting for jokes
