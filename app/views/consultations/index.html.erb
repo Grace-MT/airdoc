@@ -1,5 +1,8 @@
-<% name = "#{current_user.first_name.capitalize} #{current_user.last_name.capitalize}"%>
-<h1 class="title">Welcome Dr. <%= name %> </h1>
+<div data-controller="typed2">
+  <% name = "#{current_user.first_name.capitalize} #{current_user.last_name.capitalize}"%>
+  <h1 data-typed2-target="drMessage" style="display: none;"  class="title">Welcome Dr. <%= name %> </h1>
+  <h1 style="color: blue;" data-typed2-target="drDisplay" class="title"></h1>
+</div>
 
 <div id="consultations">
   <h3 class="mt-4 consultation-list">Consultations</h3>
