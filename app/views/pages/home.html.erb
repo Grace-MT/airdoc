@@ -23,7 +23,6 @@
 <%end%>
 
 
-<% if user_signed_in?%>
   <div data-controller="toggle">
       <button data-action="click->toggle#fire" class="btn btn-success mx-5 mb-5"> All consultations </button>
 
@@ -31,5 +30,3 @@
         <%= render "consultations" %>
       </div>
   </div>
-
-<%end%>

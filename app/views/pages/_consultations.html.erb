@@ -25,7 +25,9 @@
           <td><%= consultation.price_per_hour %></td>
           <td><%= consultation.duration %></td>
           <td><%= link_to "Show", consultation, class: 'btn btn-primary' %></td>
-          <td><%=button_to "Book Appointment", consultation_appointments_path(consultation), method: :post, class: 'btn btn-success'%></td>
+          <% if user_signed_in?%>
+            <td><%=button_to "Book Appointment", consultation_appointments_path(consultation), method: :post, class: 'btn btn-success'%></td>
+          <%end%>
         </tr>
       <% end %>
     </thead>

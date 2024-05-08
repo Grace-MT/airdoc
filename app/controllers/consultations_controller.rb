@@ -7,8 +7,10 @@ class ConsultationsController < ApplicationController
   end
 
   def show
-    @appointments = current_user.appointments
-    @appointment = Appointment.new
+    if user_signed_in?
+      @appointments = current_user.appointments
+      @appointment = Appointment.new
+    end
   end
 
   def new
