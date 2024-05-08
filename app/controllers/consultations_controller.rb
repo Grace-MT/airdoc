@@ -11,6 +11,8 @@ class ConsultationsController < ApplicationController
       @appointments = current_user.appointments
       @appointment = Appointment.new
     end
+    # if user_signed_in? && @consultation.user != current_user
+    #   @appointments =
   end
 
   def new
