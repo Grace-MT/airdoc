@@ -10,7 +10,7 @@ class CreateConsultations < ActiveRecord::Migration[7.1]
       t.float :price_per_hour
       t.float :rating
       t.integer :duration
-      t.references :user, foreign_key: true
+      # t.references :user, foreign_key: true
 
 
       t.timestamps
