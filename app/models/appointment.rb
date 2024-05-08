@@ -1,9 +1,9 @@
 class Appointment < ApplicationRecord
 #commenting from Grace
-  validates :status
+  validates :status, presence: true
   # patient
-  validates :user_id, presence: true
   validates :consultation_id, presence: true
+  validates :user_id, presence: true
 
   belongs_to :consultation
   # doctor

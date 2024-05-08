@@ -1,0 +1,38 @@
+.ap-form-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  form {
+    border: 2px solid pink;
+    width: 40rem;
+    border-radius: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 4rem;
+
+    .btn {
+      margin-top: 2rem;
+    }
+  }
+}
+
+.appform {
+  padding: 2rem;
+  display: flex;
+  gap: 2rem;
+
+  .input {
+    padding: 0;
+    margin: 0;
+  }
+}
+
+
+// stimulus forms toggle classes
+
+.form-open {
+  display: none;
+}

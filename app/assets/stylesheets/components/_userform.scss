@@ -1,0 +1,18 @@
+.userform {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .session_form {
+    width: 40rem;
+    border: 2px solid pink;
+  }
+
+  .form-btns {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+  }
+
+}
