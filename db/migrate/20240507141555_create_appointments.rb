@@ -10,3 +10,5 @@ class CreateAppointments < ActiveRecord::Migration[7.1]
     end
   end
 end
+
+#updated
