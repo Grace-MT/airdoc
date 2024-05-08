@@ -1,0 +1,22 @@
+  <h1>New Appointment</h1>
+<div class="ap-form-div">
+
+  <%= form_for [@consultation, @appointment] do |form| %>
+
+    <div class="appform">
+      <div>
+        <%= form.label 'patient full name', style: "display: block" %>
+        <%= form.text_field :user %>
+      </div>
+
+      <div>
+        <%= form.label :status, style: "display: block" %>
+        <%= form.text_field :status %>
+      </div>
+    </div>
+
+    <div class="form-btns">
+      <%= form.submit 'Submit', class: "btn btn-primary" %>
+    </div>
+  <% end %>
+</div>

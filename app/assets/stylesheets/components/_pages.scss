@@ -1,0 +1,73 @@
+//application template
+h1 {
+  text-align: center;
+}
+
+.home-div {
+  padding: 4rem;
+  text-align: justify;
+
+  .title {
+    text-align: center;
+  }
+}
+
+.notifications {
+  font-size: 2rem;
+  text-align: center;
+  opacity: 0.7;
+  margin: 2rem;
+  padding: 1rem;
+  border-radius: 1rem;
+  color: white;
+}
+
+.success {
+  background-color: rgb(38, 173, 38);
+}
+.fail {
+  background-color: rgb(225, 16, 82);
+}
+
+// consulations index page
+#consultations, #appointments {
+  padding: 1rem;
+  h3 {
+    text-align: center;
+  }
+
+  table {
+    th, tr {
+      text-align: center;
+    }
+  }
+}
+
+//consultations show page
+.jumbotron {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid pink;
+  width: 50%;
+  border-radius: 1rem;
+  margin-left: 25%;
+
+  hr {
+    height: 2px;
+    width: 100%;
+    background-color: blue;
+  }
+
+  strong {
+    color: navy;
+    font-weight: 550;
+  }
+
+  .btns {
+    display: flex;
+    gap: 2rem;
+  }
+}
