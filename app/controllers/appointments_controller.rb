@@ -1,6 +1,7 @@
 class AppointmentsController < ApplicationController
   before_action :set_consultation, only: [:new, :create]
 
+
   def new
     @appointment = Appointment.new
   end

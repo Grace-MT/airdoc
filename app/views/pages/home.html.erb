@@ -2,12 +2,22 @@
 <div class="home-div" data-controller="typed">
   <%if current_user%>
     <% name = "#{current_user.first_name.capitalize} #{current_user.last_name.capitalize}"%>
-    <h3 class="title">Welcome <%= name %> </h3>
+    <h3 data-typed-target="message" class="title" style="display:none;">Welcome <%= name %> </h3>
+    <h3 style="color: blue;" data-typed-target="display" class="title"></h3>
     <br>
-    <h3 class="title"
-    data-typed-strings-value="<%=['Welcome', current_user.first_name.capitalize, current_user.last_name.capitalize]%>"= ></h3>
   <%else%>
     <p class="title">Welcome to my home page</p>
   <%end%>
   <span data-typed-target="lorem"></span>
 </div>
+
+<% if user_signed_in?%>
+  <div data-controller="toggle">
+      <button data-action="click->toggle#fire" class="btn btn-success mx-5 mb-5"> see appointments </button>
+
+      <div class=" form-open" data-toggle-target="appForm">
+        <%= render "appointments" %>
+      </div>
+  </div>
+
+<%end%>
