@@ -6,15 +6,18 @@
       <tr class="thead-dark">
         <th>Patient</th>
         <th>Email</th>
-        <th>Status</th>
+        <th>Dr.</th>
+        <th>Dr. email</th>
         <th colspan="2">Created at</th>
       </tr>
       <% @appointments.each do |appointment|%>
-        <% patien_name = "#{appointment.user.first_name.capitalize} #{appointment.user.last_name.capitalize}"%>
+        <% patien_name = "#{current_user.first_name.capitalize} #{current_user.last_name.capitalize}"%>
+        <% dr_name = "#{appointment.user.first_name.capitalize} #{appointment.user.last_name.capitalize}"%>
         <tr>
           <td><%= patien_name %></td>
+          <td><%= current_user.email %></td>
+          <td><%= dr_name %></td>
           <td><%= appointment.user.email %></td>
-          <td><%= appointment.status %></td>
           <td><%= appointment.created_at %></td>
           <td><%=link_to 'delete', appointment_path(appointment), data: { turbo_method: :delete }, class: 'btn btn-danger'%></td>
         </tr>

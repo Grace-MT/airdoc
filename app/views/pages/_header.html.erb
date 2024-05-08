@@ -9,7 +9,7 @@
 
       <% if user_signed_in? %>
           <li class="nav-item">
-            <%= link_to 'consultations', consultations_path, class:'nav-link'%>
+            <%= link_to 'My consultations', consultations_path, class:'nav-link'%>
           </li>
           <li class="nav-item">
             <%= link_to 'Add consultation', new_consultation_path, class:'nav-link'%>
@@ -21,6 +21,9 @@
             <%= button_to 'Sign Out', destroy_user_session_path, method: :delete, class:'btn btn-danger' %>
           </li>
       <% else %>
+          <li class="nav-item">
+            <%= link_to 'All Consultation', new_user_registration_path, class:'nav-link'%>
+          </li>
           <li class="nav-item">
             <%= link_to 'Sign Up', new_user_registration_path, class:'nav-link'%>
           </li>

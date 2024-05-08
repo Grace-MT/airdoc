@@ -7,7 +7,7 @@ class ConsultationsController < ApplicationController
   end
 
   def show
-    @appointments = @consultation.appointments
+    @appointments = current_user.appointments
     @appointment = Appointment.new
   end
 
