@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   has_many :consultations, dependent: :destroy
   has_many :appointments, through: :consultations
+  has_many :appointments
 
   validates :first_name, presence: true
   validates :last_name, presence: true
