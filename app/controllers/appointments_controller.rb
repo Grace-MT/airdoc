@@ -17,6 +17,7 @@ class AppointmentsController < ApplicationController
     end
   end
 
+
   # def create
   #   @appointment = Appointment.new()
   #   @appointment.status = appointment_params[:status]
