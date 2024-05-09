@@ -43,7 +43,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_09_094512) do
   end
 
   create_table "appointments", force: :cascade do |t|
-    t.string "status", default: "pending"
+    t.string "status"
     t.bigint "consultation_id"
     t.bigint "user_id"
     t.datetime "created_at", null: false

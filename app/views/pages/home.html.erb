@@ -1,7 +1,29 @@
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= image_path "airdoc-banner-4.jpg" %>)">
   <div class="container">
-    <h1>AirDoc </h1>
+
+  <div class="left">
+    <div class="motto">All your medical needs covered 🩺</div>
+    <div class="title">AirDoc</div>
+    <div class="sub-heading">The private healthcare booking service that puts you in charge of your healthcare, matching you with the best healthcare professionals in the country.</div>
+    <div data-controller="toggle">
+      <button data-action="click->toggle#fire" class="button" role="button"> Check consultations </button>
+      <div class=" form-open" data-toggle-target="appForm">
+        <%= render "consultations" %>
+      </div>
+    </div>
+
   </div>
+
+
+
+  <div class="right">
+    <img src=""/>
+  </div>
+    <%# <h1>AirDoc </h1> %>
+
+  </div>
+
+
 
 
 
@@ -16,7 +38,7 @@
   <%else%>
     <p class="title">All your medical needs covered 🩺</p>
   <%end%>
-  <span data-typed-target="lorem"></span>
+  <%# <span data-typed-target="lorem"></span> %>
 </div>
 
 <% if user_signed_in?%>
@@ -31,7 +53,7 @@
 <%end%>
 
   <div data-controller="toggle">
-      <button data-action="click->toggle#fire" class="btn btn-success mx-5 mb-5"> Check consultations </button>
+      <button data-action="click->toggle#fire" > Check consultations </button>
       <div class=" form-open" data-toggle-target="appForm">
         <%= render "consultations" %>
       </div>
@@ -48,3 +70,6 @@
     <%end%>
   </div>
 </div>
+
+
+<%# class="btn btn-success mx-5 mb-5" %>
