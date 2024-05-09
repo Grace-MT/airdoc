@@ -9,6 +9,7 @@ class AppointmentsController < ApplicationController
     @appointment = Appointment.new()
     @appointment.consultation = @consultation
     @appointment.user_id = current_user.id
+    @appointment.status = 'pending'
     if @appointment.save
       redirect_to consultation_path(@consultation), notice: "Appointment was successfully created."
     else
