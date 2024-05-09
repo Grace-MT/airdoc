@@ -29,3 +29,15 @@
         <%= render "consultations" %>
       </div>
   </div>
+<div>
+  <div class="profile">
+    <%if user_signed_in?%>
+      <h4>image</h4>
+      <%if current_user.profile_photo.key %>
+        <%= cl_image_tag current_user.profile_photo.key %>
+      <% else%>
+        <p>test</p>
+      <% end %>
+    <%end%>
+  </div>
+</div>
