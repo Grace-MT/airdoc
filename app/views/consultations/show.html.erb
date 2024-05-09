@@ -19,7 +19,12 @@
   <br>
   <strong>Created at:</strong> <i><%= @consultation.created_at %></i>
   <hr class="my-2">
+  <h4>images</h4>
+  <% @consultation.photos.each do |photo| %>
+    <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+  <% end %>
   <br>
+  <hr>
   <div class="btns col-3 p-0">
     <% if user_signed_in? %>
       <%= link_to "Back", consultations_path, class: "btn btn-primary" %>
@@ -36,7 +41,8 @@
   </div>
 </div>
 
-<% if user_signed_in? %>
+
+
 <div id="appointments">
   <h3 class="mt-4 appointment-list">Appointments</h3>
   <table class="table table-striped table-bordered table-striped">
@@ -44,10 +50,9 @@
       <tr class="thead-dark">
         <th>Patient</th>
         <th>Email</th>
-        <th>Dr</th>
-        <th>Dr email</th>
+        <th>Dr.</th>
+        <th>Dr. email</th>
         <th colspan="2">Created at</th>
-
       </tr>
       <% @appointments.each do |appointment|%>
         <% patien_name = "#{current_user.first_name.capitalize} #{current_user.last_name.capitalize}"%>
@@ -64,10 +69,3 @@
     </thead>
   </table>
 </div>
-<% end %>
-<%# <div data-controller="toggle">
-    <button data-action="click->toggle#fire" class="btn btn-success mx-5 mb-5"> Add appointment </button>
-
-    <div class=" form-open" data-toggle-target="appForm">
-    </div>
-</div> %>

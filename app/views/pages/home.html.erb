@@ -1,12 +1,20 @@
-<h1 class="home-title">Home</h1>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= image_path "airdoc-banner-4.jpg" %>)">
+  <div class="container">
+    <h1>AirDoc </h1>
+  </div>
+
+
+
 <div class="home-div" data-controller="typed">
   <%if current_user%>
     <% name = "#{current_user.first_name.capitalize} #{current_user.last_name.capitalize}"%>
+
+
     <h3 data-typed-target="message" class="title" style="display:none;">Welcome <%= name %> </h3>
     <h3 style="color: blue;" data-typed-target="display" class="title"></h3>
     <br>
   <%else%>
-    <p class="title">Welcome to AirDoc</p>
+    <p class="title">All your medical needs covered 🩺</p>
   <%end%>
   <span data-typed-target="lorem"></span>
 </div>
@@ -22,11 +30,21 @@
 
 <%end%>
 
-
   <div data-controller="toggle">
-      <button data-action="click->toggle#fire" class="btn btn-success mx-5 mb-5"> All consultations </button>
-
+      <button data-action="click->toggle#fire" class="btn btn-success mx-5 mb-5"> Check consultations </button>
       <div class=" form-open" data-toggle-target="appForm">
         <%= render "consultations" %>
       </div>
   </div>
+<div>
+  <div class="profile">
+    <%if user_signed_in?%>
+      <h4>image</h4>
+      <%if current_user.profile_photo.key %>
+        <%= cl_image_tag current_user.profile_photo.key %>
+      <% else%>
+        <p>test</p>
+      <% end %>
+    <%end%>
+  </div>
+</div>

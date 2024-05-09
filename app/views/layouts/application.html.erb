@@ -16,7 +16,7 @@
 
 
     <%= render 'pages/header' %>
-    <br>
+
     <% if notice && notice == 'no such patient exist' %>
       <p class="notifications fail"><%= notice %></p>
     <% elsif notice%>
@@ -27,7 +27,6 @@
       <p class="notifications success"><%= alert %></p>
     <% end %>
 
-    <br>
 
     <%= yield %>
   </body>

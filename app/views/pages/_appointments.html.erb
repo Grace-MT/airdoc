@@ -13,6 +13,7 @@
         <th>Email</th>
         <th>Dr.</th>
         <th>Dr. email</th>
+        <th>status</th>
         <th colspan="2">Created at</th>
       </tr>
 
@@ -27,6 +28,7 @@
           <td><%= current_user.email %></td>
           <td><%= dr_name %></td>
           <td><%= appointment.user.email %></td>
+          <td><%= appointment.status %></td>
           <td><%= appointment.created_at %></td>
           <td><%=link_to 'delete', appointment_path(appointment), data: { turbo_method: :delete }, class: 'btn btn-danger'%></td>
         </tr>
