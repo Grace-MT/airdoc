@@ -34,6 +34,10 @@
         <div class="input">
           <%= f.input :duration %>
         </div>
+
+        <div class="input">
+          <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+        </div>
       </div>
 
         <div class="form-btns form-actions">

@@ -19,7 +19,12 @@
   <br>
   <strong>Created at:</strong> <i><%= @consultation.created_at %></i>
   <hr class="my-2">
+  <h4>images</h4>
+  <% @consultation.photos.each do |photo| %>
+    <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+  <% end %>
   <br>
+  <hr>
   <div class="btns col-3 p-0">
     <% if user_signed_in? %>
       <%= link_to "Back", consultations_path, class: "btn btn-primary" %>
@@ -35,6 +40,8 @@
     <% end %>
   </div>
 </div>
+
+
 
 <div id="appointments">
   <h3 class="mt-4 appointment-list">Appointments</h3>

@@ -1,3 +1,10 @@
+<div>
+  <div class="profile">
+    <h4>image</h4>
+    <%= cl_image_tag current_user.profile_photo.key %>
+  </div>
+</div>
+
 <div data-controller="typed2">
   <% name = "#{current_user.first_name.capitalize} #{current_user.last_name.capitalize}"%>
   <h1 data-typed2-target="drMessage" style="display: none;"  class="title">Welcome Dr. <%= name %> </h1>
