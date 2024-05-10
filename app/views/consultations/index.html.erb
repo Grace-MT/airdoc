@@ -1,33 +1,14 @@
+<div id="consultations">
 
-
-<div data-controller="typed2">
-  <% name = "#{current_user.first_name.capitalize} #{current_user.last_name.capitalize}"%>
-  <%# <h1 data-typed2-target="drMessage" style="display: none;"  class="title">Welcome Dr. <%= name %>
-  <%if user_signed_in? && current_user %>
-    <h1>Welcome Dr.<%= name %></h1>
-  <%else%>
-    <h1>Welcome Guest!</h1>
-  <%end%>
-
-
-
-  <h1 style="color: blue;" data-typed2-target="drDisplay" class="title"> </h1>
-</div>
-
-
-
-<div id="consultations" >
-
-  <h3 class="consultation-list" style="font-family: var(--bs-body-font-family); font-weight:normal;">Available Consultations</h3>
-
+  <h3 class="consultation-list" style="font-family: var(--bs-body-font-family); font-weight: normal;"> Available Consultations</h3>
 
       <% @consultations.each do |consultation|%>
         <% name = "#{current_user.first_name.capitalize} #{current_user.last_name.capitalize}"%>
 
-
         <div class="consult-card">
           <div class="consult-info">
-            <%= image_tag 'appointment_pic.png' %>
+          <div class="user-info">
+            <%= image_tag 'appointment_pic.png', class: "cons-icon" %>
             <div class="info">
               <h4>Title: <%= consultation.pretty_title%></h4>
               <span>Speciality: <%= consultation.speciality %></span>
@@ -37,30 +18,23 @@
               <span>Availability: <%= consultation.availability%></span>
               <span>Price/hr: <%= consultation.price_per_hour %></span>
               <span>Duration(mins): <%= consultation.duration %></span>
+              </div>
             </div>
 
-            <div class="con-buttons" >
-              <%=button_to "Delete", consultation, method: :delete, class: 'float-end'%>
-              <%=link_to consultation_path(consultation), data: { turbo_method: :delete }, class: 'float-end' do %>
-              <i class="fa-solid fa-x"></i>
-              <% end %>
-
-
+              <div class="con-buttons" >
+                <% if consultation.user == current_user %>
+                <%# <%=button_to "Delete", consultation, method: :delete, class: 'float-end'%>
+                  <%=link_to consultation_path(consultation), data: { turbo_method: :delete }, class: 'float-end' do %>
+                    <i class="fa-solid fa-x"></i>
+                  <% end %>
+                <% end %>
+                  <%=link_to "View", consultation_path(consultation), class: 'float-end'%>
+              </div>
             </div>
           </div>
-        </div>
-
-
-
-
-      <% end %>
-
-
-
+        <% end %>
 
   <%# <%= link_to 'Add consultation', new_consultation_path, class:'nav-link'%>
-
-
   <%# <><%= link_to "Add consultation", new_consultation_path, class: 'btn btn-primary' %>
 </div>
 
@@ -70,4 +44,23 @@
     <div class=" form-open" data-toggle-target="appForm">
       <%= render "form" %>
     </div>
+</div>
+
+
+# card product
+<div class="cards">
+  <% @consultations.each do |consultation|%>
+    <%=link_to consultation_path(consultation) do %>
+      <div class="card-product">
+        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+        <div class="card-product-infos">
+          <h2><%= consultation.pretty_title %></h2>
+          <p><%= consultation.speciality %></p>
+          <p><%= consultation.years_of_experience %></p>
+          <p><%= consultation.location_city %></p>
+          <p><%= consultation.price_per_hour %></p>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
 </div>
