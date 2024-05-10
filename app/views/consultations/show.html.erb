@@ -21,4 +21,23 @@
   <hr class="my-2">
   <h4>images</h4>
 
+  <% @consultation.photos.each do |photo| %>
+    <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+  <% end %>
+  <br>
+  <hr>
+  <div class="btns p-0">
+    <% if user_signed_in? %>
+      <%= link_to "Back", consultations_path, class: "btn btn-primary" %>
+    <% else %>
+      <%= link_to "Home", root_path, class: "btn btn-primary" %>
+    <% end %>
+    <% if @consultation.user == current_user %>
+      <%= button_to "Delete", @consultation, method: :delete, class: 'btn btn-danger'%>
+    <% else %>
+      <% if user_signed_in? %>
+        <%=button_to "Book Appointment", consultation_appointments_path(@consultation), method: :post, class: 'btn btn-success'%>
+      <% end %>
+    <% end %>
+  </div>
 </div>

@@ -1,55 +1,35 @@
 
+<h3 class="appointment-list" style="font-family: var(--bs-body-font-family); font-weight: normal;"> Available Consultations</h3>
 
-<div data-controller="typed2">
-  <% name = "#{current_user.first_name.capitalize} #{current_user.last_name.capitalize}"%>
-  <%# <h1 data-typed2-target="drMessage" style="display: none;"  class="title">Welcome Dr. <%= name %>
-  <%if user_signed_in? && current_user %>
-    <h1>Welcome Dr.<%= name %></h1>
-  <%else%>
-    <h1>Welcome Guest!</h1>
-  <%end%>
+<div class="container">
 
-  <h1 style="color: blue;" data-typed2-target="drDisplay" class="title"> </h1>
-</div>
-
-
-
-<div id="consultations" >
-
-  <h3 class="consultation-list" style="font-family: var(--bs-body-font-family); font-weight:normal;">Available Consultations</h3>
-    <% name = "#{current_user.first_name.capitalize} #{current_user.last_name.capitalize}"%>
-      <% @consultations.each do |consultation|%>
-        <div class="consult-card">
-          <div class="consult-info">
-            <%= image_tag 'appointment_pic.png' %>
-            <div class="info">
-              <h4>Title: <%= consultation.pretty_title%></h4>
-              <span>Speciality: <%= consultation.speciality %></span>
-              <span>Experience(Yrs): <%= consultation.years_of_experience %></span>
-              <span>Languages: <%= consultation.languages_spoken%></span>
-              <span>Location: <%= consultation.location_city %></span>
-              <span>Availability: <%= consultation.availability%></span>
-              <span>Price/hr: <%= consultation.price_per_hour %></span>
-              <span>Duration(mins): <%= consultation.duration %></span>
-            </div>
-
-            <div class="con-buttons" >
-              <%=button_to "Delete", consultation, method: :delete, class: 'float-end'%>
-              <%=link_to consultation_path(consultation), data: { turbo_method: :delete }, class: 'float-end' do %>
-              <i class="fa-solid fa-x"></i>
-              <% end %>
-            </div>
-          </div>
+<div class="cards">
+  <% @consultations.each do |consultation|%>
+    <% name = "#{consultation.user.first_name.capitalize} #{consultation.user.last_name.capitalize}"%>
+    <%=link_to consultation_path(consultation), class: "text-decoration-none" do %>
+      <div class="card-product position-relative" >
+        <%# <img src="https://images.unsplash.com/photo-1584820927498-cfe5211fd8bf?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" /> %>
+        <%= image_tag 'doctor_prpfile_pic.png' %>
+        <div class="card-product-infos">
+          <h2 style="color: black; font-size: 24px">Dr. <%=name%></h2>
+          <p>Bio: <%= consultation.pretty_title %></p>
+          <p>Speciality: <%= consultation.speciality %></p>
+          <p>Experience: <%= consultation.years_of_experience %> Years</p>
+          <p>location: <%= consultation.location_city %></p>
+          <span style="position: absolute; bottom: 16px; right: 16px; font-weight: bold; color: #4190B7;">£<%= consultation.price_per_hour %>/hour</span>
         </div>
-      <% end %>
-  <%# <%= link_to 'Add consultation', new_consultation_path, class:'nav-link'%>
-
-
-  <%# <><%= link_to "Add consultation", new_consultation_path, class: 'btn btn-primary' %>
+      </div>
+    <% end %>
+  <% end %>
 </div>
+
+</div>
+
 
 <div data-controller="toggle">
-    <button data-action="click->toggle#fire" class="btn btn-success mx-5 mb-5"> Create consultation </button>
+
+    <button data-action="click->toggle#fire" class="btn btn-success mx-5 mt-5"> Create consultation </button>
+
 
     <div class=" form-open" data-toggle-target="appForm">
       <%= render "form" %>

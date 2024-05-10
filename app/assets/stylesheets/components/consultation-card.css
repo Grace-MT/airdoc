@@ -1,0 +1,99 @@
+.consult-card {
+
+  padding: 2rem 4rem;
+
+  .cons-icon {
+    width: 100px;
+    height: 100px
+  }
+
+  .user-info {
+    display: flex;
+    gap: 2rem;
+    height: 100px
+  }
+
+  .consult-info {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .con-buttons {
+    display: flex;
+    align-items: center;
+    width: 4rem;
+    justify-content: center;
+  }
+
+
+}
+
+#consultations {
+  margin-top: 5rem;
+  padding-top: 5rem;
+}
+
+.consultations-list {
+  font-family: var(--bs-body-font-family);
+  font-weight: normal;
+  /* margin-top: 5rem; */
+}
+
+.welcome {
+  border: 1rem solid red;
+  margin-bottom: 5rem;
+
+}
+
+/* d-flex flex-row  w-100 */
+/* d-flex align-items-start flex-column mr-4 */
+
+
+.cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 16px;
+}
+
+// Smallest device
+@media (min-width: 100px) and (max-width: 575px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+  .cards {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+  .cards {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+  .cards {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+.cards {
+
+  .card-product {
+    height: 220px;
+
+  }
+}
