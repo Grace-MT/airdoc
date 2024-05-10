@@ -1,6 +1,6 @@
 
+  <h3 class="appointment-list" style="font-family: var(--bs-body-font-family); color: black; margin-top: 20px; font-weight:normal;">Your Appointments</h3>
 <div id="appointments">
-  <h3 class=" appointment-list" style="font-family: var(--bs-body-font-family); color: black; margin-top: 20px;">Your Appointments</h3>
 
       <% @doctors_appointments.each do |appointment|%>
         <% patient_name = "#{current_user.first_name.capitalize} #{current_user.last_name.capitalize}"%>

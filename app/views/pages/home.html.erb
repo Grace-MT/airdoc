@@ -8,11 +8,13 @@
       matching you with the best healthcare professionals in the country
       </div>
 
+        <%= link_to 'check consultations', consultations_path, class: "landing-btn text-decoration-none d-inline-block mt-6"%>
 
-        <div data-controller="toggle">
+
+        <%# <div data-controller="toggle">
             <button data-action="click->toggle#fire" class="landing-btn" role="button"> Check consultations </button>
               <div class=" form-open" data-toggle-target="appForm"></div>
-        </div>
+        </div> %>
 
 
 
@@ -34,64 +36,3 @@
 
   </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <%= render "consultations" %>
-
-
-
-
- <div class="home-div" data-controller="typed">
-  <%if current_user%>
-    <% name = "#{current_user.first_name.capitalize} #{current_user.last_name.capitalize}"%>
-
-
-    <h3 data-typed-target="message" class="title" style="display:none;">Welcome <%= name %> </h3>
-    <h3 style="color: blue;" data-typed-target="display" class="title"></h3>
-
-  <%else%>
-    <%# <p class="title">All your medical needs covered 🩺</p> %>
-
-  <%end%>
-  <%# <span data-typed-target="lorem"></span> %>
-</div>
-
-<% if user_signed_in?%>
-  <div data-controller="toggle">
-      <button data-action="click->toggle#fire" class="btn btn-success mx-5 mb-5"> see appointments </button>
-
-      <div class=" form-open" data-toggle-target="appForm">
-        <%= render "appointments" %>
-      </div>
-  </div>
-
-<%end%>
-
-
-<div>
-  <div class="profile">
-    <%if user_signed_in?%>
-      <h4>image</h4>
-      <%if current_user.profile_photo.key %>
-        <%= cl_image_tag current_user.profile_photo.key %>
-      <% else%>
-        <p>test</p>
-      <% end %>
-    <%end%>
-  </div>
-</div>
-
-
-<%# class="btn btn-success mx-5 mb-5" %>
