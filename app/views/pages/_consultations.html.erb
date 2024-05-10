@@ -1,9 +1,11 @@
 
 <div id="consultations">
+
   <h3 class="mt-4 consultation-list">Consultations</h3>
   <table class="table table-striped table-bordered table-striped">
     <thead>
       <tr class="thead-dark">
+        <th>Dr</th>
         <th>Title</th>
         <th>Speciality</th>
         <th>Experience(yrs)</th>
@@ -15,7 +17,9 @@
         <th colspan="3"></th>
       </tr>
       <% @consultations.each do |consultation| %>
+      <% dr_name = "#{consultation.user.first_name.capitalize} #{consultation.user.last_name.capitalize}"%>
         <tr>
+          <td><%= dr_name %></td>
           <td><%= consultation.pretty_title %></td>
           <td><%= consultation.speciality %></td>
           <td><%= consultation.years_of_experience %></td>

@@ -1,0 +1,36 @@
+
+<div id="appointments">
+  <h3 class="mt-4 appointment-list">Appointments</h3>
+  <table class="table table-striped table-bordered table-striped">
+    <thead>
+      <tr class="thead-dark">
+        <% if @doctor%>
+          <th>Patients</th>
+        <%else%>
+          <th>Doctors</th>
+        <% end %>
+        <th>Email</th>
+        <th colspan="2">Date</th>
+      </tr>
+      <% if @doctor%>
+        <% @patients.each do |patient|%>
+          <tr>
+            <td><%= patient[:full_name]%></td>
+            <td><%= patient[:email]%></td>
+            <td><%= patient[:date] %></td>
+            <td><%=link_to 'delete', appointment_path(patient[:apt]), data: { turbo_method: :delete }, class: 'btn btn-danger'%></td>
+          </tr>
+        <% end %>
+      <% else %>
+        <% @doctors.each do |doctor|%>
+          <tr>
+            <td><%= doctor[:full_name] %></td>
+            <td><%= doctor[:email] %></td>
+            <td><%= doctor[:date] %></td>
+            <td><%=link_to 'delete', appointment_path(doctor[:apt]), data: { turbo_method: :delete }, class: 'btn btn-danger'%></td>
+          </tr>
+        <% end %>
+      <% end %>
+    </thead>
+  </table>
+</div>

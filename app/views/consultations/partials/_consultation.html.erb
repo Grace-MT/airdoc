@@ -1,0 +1,56 @@
+<h1>Consultation</h1>
+<% name = "#{ @consultation.user.first_name.capitalize} #{ @consultation.user.last_name.capitalize}"%>
+<div class="jumbotron">
+  <h3 class="display-8">
+    <strong>Name: </strong>Dr. <%= name %>
+  </h3>
+  <hr class="my-2">
+  <p class="lead">
+    <strong>Title:</strong> <i><%= @consultation.pretty_title.capitalize %></i><br>
+    <strong>Speciality:</strong> <i><%= @consultation.speciality %></i><br>
+    <strong>Experience(yrs):</strong> <i><%= @consultation.years_of_experience %></i><br>
+    <strong>Languages:</strong> <i><%= @consultation.languages_spoken %></i><br>
+    <strong>Availability:</strong> <i><%= @consultation.availability %></i><br>
+    <strong>Location:</strong> <i><%= @consultation.location_city %></i><br>
+    <strong>Price/hr:</strong> <i>£<%= @consultation.price_per_hour %></i><br>
+    <strong>Duration(hrs):</strong> <i><%= @consultation.duration %></i>
+  </p>
+  <hr class="my-2">
+  <br>
+  <strong>Created at:</strong> <i><%= @consultation.created_at %></i>
+  <hr class="my-2">
+  <h4>images</h4>
+  <% @consultation.photos.each do |photo| %>
+    <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+  <% end %>
+  <br>
+  <hr>
+  <div class="btns col-3 p-0">
+    <% if user_signed_in? %>
+      <%= link_to "Back", consultations_path, class: "btn btn-primary" %>
+    <% else %>
+      <%= link_to "Home", root_path, class: "btn btn-primary" %>
+    <% end %>
+    <% if @consultation.user == current_user %>
+      <%= button_to "Delete", @consultation, method: :delete, class: 'btn btn-danger'%>
+    <% else %>
+      <% if user_signed_in? %>
+        <%=button_to "Book Appointment", consultation_appointments_path(@consultation), method: :post, class: 'btn btn-success'%>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+<br>
+
+  <h1>Make an Appointment</h1>
+<div class="ap-form-div" data-controller="">
+  <%= simple_form_for [@consultation, @appointment] do |f| %>
+    <div class="appform">
+      <div>
+        <%= f.input :date , as: :string, input_html:{ data: {controller: "datepicker"} }%>
+      </div>
+    <div class="form-btns">
+      <%= f.button :submit, 'Submit', class: "btn btn-primary" %>
+    </div>
+  <% end %>
+</div>

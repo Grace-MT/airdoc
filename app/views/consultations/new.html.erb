@@ -1,5 +1,5 @@
 <div class="form-div">
-  <h2>Book a consultation</h2>
+  <h2>Create a consultation</h2>
 
     <%= simple_form_for @consultation do |f|%>
       <div class="consultform">
@@ -33,6 +33,10 @@
 
         <div class="input">
           <%= f.input :duration %>
+        </div>
+
+        <div class="input">
+          <%= f.input :photos, as: :file, input_html: { multiple: true } %>
         </div>
       </div>
 

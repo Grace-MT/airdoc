@@ -1,0 +1,33 @@
+<section>
+  <div class="card">
+    <div class="top">
+      <span>John Doe</span>
+      <i class="bx bx-dots-vertical-rounded"></i>
+    </div>
+
+    <div class="middle">
+      <div class="left">
+        <%= cl_image_tag current_user.profile_photo.key, height: 100, width: 100, crop: :fill, style: 'border-radius: 50%; margin-right:3rem; padding: 0;', alt:'user profile-picture' %>
+      </div>
+      <div class="right">
+        <label for="">Skills:</label>
+        <div>
+          <ul>
+            <li id="test">Web Designer</li>
+            <li>Web Designer</li>
+            <li>Web Designer</li>
+          </ul>
+        </div>
+        <div class="social-icon">
+          <span><i class="bx bxl-facebook"></i></span>
+          <span><i class="bx bxl-linkedin"></i></span>
+          <span><i class="bx bxl-instagram"></i></span>
+          <span><i class="bx bxl-twitter"></i></span>
+        </div>
+      </div>
+    </div>
+    <div class="bottom">
+      <input type="submit" class="btn" value="Hire">
+    </div>
+  </div>
+</section>

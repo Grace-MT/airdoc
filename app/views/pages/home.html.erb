@@ -1,14 +1,71 @@
-<h1 class="home-title">Home</h1>
-<div class="home-div" data-controller="typed">
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= image_path "airdoc-banner-4.jpg" %>)">
+  <div class="container heromain">
+
+
+      <div class="title">AirDoc</div>
+      <div class="sub-heading">The private healthcare booking
+      service that puts you in charge of your healthcare,
+      matching you with the best healthcare professionals in the country
+      </div>
+
+
+        <div data-controller="toggle">
+            <button data-action="click->toggle#fire" class="button consults" role="button"> Check consultations </button>
+              <div class=" form-open" data-toggle-target="appForm"></div>
+        </div>
+
+
+
+      <div class="stats">
+        <div class="stat-1">
+          <h1>88+</h1>
+          <p>Expert Doctors</p>
+        </div>
+        <div class="stat-2">
+          <h1>20K+</h1>
+          <p>Happy Patients</p>
+        </div>
+        <div class="stat-3">
+          <h1>100+</h1>
+          <p>Award Winner </p>
+        </div>
+      </div>
+
+
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <%= render "consultations" %>
+
+
+
+
+ <div class="home-div" data-controller="typed">
   <%if current_user%>
     <% name = "#{current_user.first_name.capitalize} #{current_user.last_name.capitalize}"%>
+
+
     <h3 data-typed-target="message" class="title" style="display:none;">Welcome <%= name %> </h3>
     <h3 style="color: blue;" data-typed-target="display" class="title"></h3>
-    <br>
+
   <%else%>
-    <p class="title">Welcome to my home page</p>
+    <%# <p class="title">All your medical needs covered 🩺</p> %>
+
   <%end%>
-  <span data-typed-target="lorem"></span>
+  <%# <span data-typed-target="lorem"></span> %>
 </div>
 
 <% if user_signed_in?%>
@@ -23,10 +80,18 @@
 <%end%>
 
 
-  <div data-controller="toggle">
-      <button data-action="click->toggle#fire" class="btn btn-success mx-5 mb-5"> All consultations </button>
-
-      <div class=" form-open" data-toggle-target="appForm">
-        <%= render "consultations" %>
-      </div>
+<div>
+  <div class="profile">
+    <%if user_signed_in?%>
+      <h4>image</h4>
+      <%if current_user.profile_photo.key %>
+        <%= cl_image_tag current_user.profile_photo.key %>
+      <% else%>
+        <p>test</p>
+      <% end %>
+    <%end%>
   </div>
+</div>
+
+
+<%# class="btn btn-success mx-5 mb-5" %>
