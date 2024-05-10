@@ -7,7 +7,8 @@
     <% name = "#{consultation.user.first_name.capitalize} #{consultation.user.last_name.capitalize}"%>
     <%=link_to consultation_path(consultation), class: "text-decoration-none" do %>
       <div class="card-product position-relative" >
-        <img src="https://images.unsplash.com/photo-1584820927498-cfe5211fd8bf?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
+        <%# <img src="https://images.unsplash.com/photo-1584820927498-cfe5211fd8bf?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" /> %>
+        <%= image_tag 'doctor_prpfile_pic.png' %>
         <div class="card-product-infos">
           <h2 style="color: black; font-size: 24px">Dr. <%=name%></h2>
           <p>Bio: <%= consultation.pretty_title %></p>
