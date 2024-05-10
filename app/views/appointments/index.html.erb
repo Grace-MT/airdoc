@@ -1,25 +1,25 @@
 
 <div id="appointments">
-  <h3 class="mt-4 appointment-list">Appointments</h3>
+  <h3 class=" appointment-list" style="font-family: var(--bs-body-font-family); color: black; margin-top: 20px;">Appointments</h3>
   <table class="table table-striped table-bordered table-striped">
     <thead>
       <tr class="thead-dark">
         <th>Patient</th>
-        <th>Email</th>
-        <th>Dr.</th>
+        <th>Dr </th>
         <th>Dr. email</th>
-        <th colspan="2">Created at</th>
+        <th>Created at</th>
+
+        <th colspan="2"></th>
       </tr>
-      <% @appointments.each do |appointment|%>
+      <% @doctors_appointments.each do |appointment|%>
         <% patient_name = "#{current_user.first_name.capitalize} #{current_user.last_name.capitalize}"%>
 
         <tr>
           <td><%= patient_name %></td>
-          <td><%= current_user.email %></td>
-
-          <td><%= appointment.user.email %></td>
-          <td><%= appointment.created_at %></td>
-          <td><%=link_to 'delete', appointment_path(appointment), data: { turbo_method: :delete }, class: 'btn btn-danger'%></td>
+          <td><%= appointment[:doctor] %></td>
+          <td><%= appointment[:email] %></td>
+          <td><%= appointment[:created_at] %></td>
+          <td><%=link_to 'delete', appointment_path(appointment[:appointment]), data: { turbo_method: :delete }, class: 'btn btn-danger'%></td>
         </tr>
       <% end %>
     </thead>

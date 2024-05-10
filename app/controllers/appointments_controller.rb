@@ -20,6 +20,17 @@ class AppointmentsController < ApplicationController
 
   def index
     @appointments = Appointment.all
+    @doctors_appointments = []
+    @appointments.each do |appointment|
+      consultation = appointment.consultation
+      user = User.find(consultation.user_id)
+      first_name = user.first_name
+      last_name = user.last_name
+      full_name = "#{first_name} #{last_name}"
+
+      @doctors_appointments << { doctor: full_name, email: user.email, created_at: appointment.created_at, appointment: appointment}
+
+    end
   end
 
 
