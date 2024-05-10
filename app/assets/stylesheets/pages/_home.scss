@@ -4,6 +4,10 @@ h1 {
   font-weight: 200;
 }
 
+.container h1 {
+  font-size: 400px;
+}
+
 p {
   color: #2A6382;
   font-size: xx-large;
@@ -14,18 +18,21 @@ body {
   font-family: var(--bs-body-font-family);;;
 }
 
-.btn {
-  color: white;
-  background-color: #2A6382;
-  outline: #4190B7;
-  align-items: center;
-}
+// .btn {
+//   color: white;
+//   background-color: #2A6382;
+//   outline: #4190B7;
+//   align-items: center;
+// }
 
 .banner {
   background-size: cover;
   background-position: center;
-  height: 1000px;
+  height: 95vh;
   padding: 50px 0;
+  display: flex;
+  align-items: center;
+
 }
 
 .banner h1 {
@@ -41,4 +48,108 @@ body {
   color: white;
   opacity: .7;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
+
+// button {
+//   color: #D9EDEF;
+//   background-color: #2A6382;
+//   border-radius: 20%;
+//   border: 2px solid #4190B7;
+//   margin: 2px;
+
+// }
+
+.heromain{
+  width: 80%;
+  margin-left: 100px;
+
+}
+button, .btn {
+
+  background: #4190B7;
+  border-radius: 999px;
+  box-shadow: #4190B7 0 10px 20px -10px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  font-family: Inter,Helvetica,"Apple Color Emoji","Segoe UI Emoji",NotoColorEmoji,"Noto Color Emoji","Segoe UI Symbol","Android Emoji",EmojiSymbols,-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans",sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+  opacity: 1;
+  outline: 0 solid transparent;
+  padding: 8px 18px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: fit-content;
+  word-break: break-word;
+  border: 0;
+}
+
+.consults {
+  margin-top: 30px;
+}
+
+.motto{
+  font-size: 20px;
+  margin-bottom: 35px;
+}
+
+.sub-heading{
+  font-size: 20px;
+  margin-top: -50px;
+  color: white;
+  width: 65%;
+}
+
+.title {
+  color: #D9EDEF;
+  font-size: 180px;
+  margin-top: -80px;
+}
+
+// .card-product {
+//   overflow: hidden;
+//   height: 120px;
+//   background: white;
+//   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   width: inherit;
+//   margin-top: 20px;
+//   border-radius: 10px;
+
+
+// }
+
+.stats  {
+  margin-top: 60px;
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-left: -81px;
+
+}
+
+.stats h1 {
+  color: #D9EDEF;
+
+}
+
+.stats p{
+  color: #D9EDEF;
+
+}
+.stat-1,.stat-2,.stat-3 {
+  flex-grow: 1;
+  text-align: center;
+}
+
+.stat-1, .stat-2 {
+  border-right: 2px solid lightgrey;
+
+
 }

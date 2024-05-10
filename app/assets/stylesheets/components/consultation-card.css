@@ -1,0 +1,11 @@
+.consult-card {
+  /* height: 50vh; */
+  *{
+    border: 1px solid red;
+    height: 25vh;
+  }
+
+}
+
+/* d-flex flex-row  w-100 */
+/* d-flex align-items-start flex-column mr-4 */

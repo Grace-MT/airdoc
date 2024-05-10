@@ -1,8 +1,15 @@
+<%# <img src="../app/assets/images/side-view-doctor-holding-stethoscope.jpg"/> %>
+
+<%= image_tag 'side-view-doctor-holding-stethoscope.jpg', class: 'hero-img', style: "width: 100%;" %>
 
 <div id="appointments">
-  <h3 class="mt-4 appointment-list">Appointments</h3>
+  <h3 class="mt-4  appointment-list" style="">View Your Appointments</h3>
+
+
   <table class="table table-striped table-bordered table-striped">
     <thead>
+
+
       <tr class="thead-dark">
         <th>Patient</th>
         <th>Email</th>
@@ -11,10 +18,14 @@
         <th>status</th>
         <th colspan="2">Created at</th>
       </tr>
+
+
+
+
       <% @appointments.each do |appointment|%>
         <% patien_name = "#{current_user.first_name.capitalize} #{current_user.last_name.capitalize}"%>
         <% dr_name = "#{appointment.user.first_name.capitalize} #{appointment.user.last_name.capitalize}"%>
-        <tr>
+          <tr>
           <td><%= patien_name %></td>
           <td><%= current_user.email %></td>
           <td><%= dr_name %></td>
@@ -23,7 +34,43 @@
           <td><%= appointment.created_at %></td>
           <td><%=link_to 'delete', appointment_path(appointment), data: { turbo_method: :delete }, class: 'btn btn-danger'%></td>
         </tr>
+
+
+        <div>Hi</div>
+
+
+        <div class="card-product justify-content-between mt-3">
+          <div class="card-product-infos d-flex flex-row  w-100">
+            <%= image_tag 'appointment_pic.png' %>
+            <div class="d-flex align-items-start flex-column mr-4 ">
+              <h4>Dr. <%= dr_name %></h4>
+              <p>Dr email: <%= appointment.user.email %></p>
+              <p>Patient: <%= patien_name %></p>
+              <p>Appointment Created: <%= appointment.created_at %></p>
+            </div>
+
+            <div class=" d-flex p-2 align-items-start ms-auto p-2" >
+              <%=link_to appointment_path(appointment), data: { turbo_method: :delete }, class: 'float-end' do %>
+              <i class="fa-solid fa-x"></i>
+              <% end %>
+
+
+            </div>
+          </div>
+        </div>
+
+        <%# <br> %>
+        <%# <br> %>
+
+
+
+
+
+
+
       <% end %>
     </thead>
   </table>
 </div>
+
+Image by <a href="https://www.freepik.com/free-photo/side-view-doctor-holding-stethoscope_35436187.htm#query=healthcare%20technology&position=30&from_view=keyword&track=ais&uuid=ecddc587-35ed-4b6e-82dc-ed1e1e19ba94">Freepik</a>
