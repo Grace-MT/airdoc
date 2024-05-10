@@ -16,41 +16,51 @@
 
 
 
-<div id="consultations" style="margin-top: 65px;">
+<div id="consultations" >
 
   <h3 class="consultation-list" style="font-family: var(--bs-body-font-family); font-weight:normal;">Available Consultations</h3>
+
+
+      <% @consultations.each do |consultation|%>
+        <% name = "#{current_user.first_name.capitalize} #{current_user.last_name.capitalize}"%>
+
+
+        <div class="consult-card">
+          <div class="consult-info">
+            <%= image_tag 'appointment_pic.png' %>
+            <div class="info">
+              <h4>Title: <%= consultation.pretty_title%></h4>
+              <span>Speciality: <%= consultation.speciality %></span>
+              <span>Experience(Yrs): <%= consultation.years_of_experience %></span>
+              <span>Languages: <%= consultation.languages_spoken%></span>
+              <span>Location: <%= consultation.location_city %></span>
+              <span>Availability: <%= consultation.availability%></span>
+              <span>Price/hr: <%= consultation.price_per_hour %></span>
+              <span>Duration(mins): <%= consultation.duration %></span>
+            </div>
+
+            <div class="con-buttons" >
+              <%=button_to "Delete", consultation, method: :delete, class: 'float-end'%>
+              <%=link_to consultation_path(consultation), data: { turbo_method: :delete }, class: 'float-end' do %>
+              <i class="fa-solid fa-x"></i>
+              <% end %>
+
+
+            </div>
+          </div>
+        </div>
+
+
+
+
+      <% end %>
+
+
+
+
   <%# <%= link_to 'Add consultation', new_consultation_path, class:'nav-link'%>
 
 
-  <table class="table table-striped table-bordered table-striped">
-    <thead>
-      <tr class="thead-dark">
-        <th>Title</th>
-        <th>Speciality</th>
-        <th>Experience(yrs)</th>
-        <th>Languages</th>
-        <th>Location</th>
-        <th>Availability</th>
-        <th>Price/hr</th>
-        <th>Duration(hrs)</th>
-        <th colspan="3"></th>
-      </tr>
-      <% @consultations.each do |consultation| %>
-        <tr>
-          <td><%= consultation.pretty_title %></td>
-          <td><%= consultation.speciality %></td>
-          <td><%= consultation.years_of_experience %></td>
-          <td><%= consultation.languages_spoken %></td>
-          <td><%= consultation.location_city %></td>
-          <td><%= consultation.availability %></td>
-          <td><%= consultation.price_per_hour %></td>
-          <td><%= consultation.duration %></td>
-          <td><%= link_to "Show", consultation, class: 'btn btn-primary' %></td>
-          <td><%=button_to "Delete", consultation, method: :delete, class: 'btn btn-danger'%></td>
-        </tr>
-      <% end %>
-    </thead>
-  </table>
   <%# <><%= link_to "Add consultation", new_consultation_path, class: 'btn btn-primary' %>
 </div>
 
