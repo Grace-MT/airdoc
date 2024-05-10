@@ -1,5 +1,6 @@
 class ConsultationsController < ApplicationController
   before_action :set_consultation, only: [:show, :destroy]
+  skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
     @consultation = Consultation.new

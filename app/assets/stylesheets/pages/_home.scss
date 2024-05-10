@@ -15,7 +15,9 @@ p {
 
 body {
   background-color: white;
-  font-family: var(--bs-body-font-family);;;
+  font-family: var(--bs-body-font-family);
+  ;
+  ;
 }
 
 // .btn {
@@ -38,7 +40,7 @@ body {
 .banner h1 {
   margin: 0;
   color: white;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
   font-size: 32px;
   font-weight: bold;
 }
@@ -47,7 +49,7 @@ body {
   font-size: 20px;
   color: white;
   opacity: .7;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
 }
 
 // button {
@@ -59,12 +61,36 @@ body {
 
 // }
 
-.heromain{
+.heromain {
   width: 80%;
   margin-left: 100px;
 
 }
-button, .btn {
+
+.landing-btn {
+  background: #4190B7;
+  border-radius: 999px;
+  box-shadow: #4190B7 0 10px 20px -10px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  font-family: Inter, Helvetica, "Apple Color Emoji", "Segoe UI Emoji", NotoColorEmoji, "Noto Color Emoji", "Segoe UI Symbol", "Android Emoji", EmojiSymbols, -apple-system, system-ui, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+  opacity: 1;
+  outline: 0 solid transparent;
+  padding: 8px 18px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: fit-content;
+  word-break: break-word;
+  border: 0;
+  margin-top: 2rem;
+}
+
+.btn {
 
   background: #4190B7;
   border-radius: 999px;
@@ -72,7 +98,7 @@ button, .btn {
   box-sizing: border-box;
   color: #FFFFFF;
   cursor: pointer;
-  font-family: Inter,Helvetica,"Apple Color Emoji","Segoe UI Emoji",NotoColorEmoji,"Noto Color Emoji","Segoe UI Symbol","Android Emoji",EmojiSymbols,-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans",sans-serif;
+  font-family: Inter, Helvetica, "Apple Color Emoji", "Segoe UI Emoji", NotoColorEmoji, "Noto Color Emoji", "Segoe UI Symbol", "Android Emoji", EmojiSymbols, -apple-system, system-ui, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", sans-serif;
   font-size: 16px;
   font-weight: 700;
   line-height: 24px;
@@ -91,12 +117,12 @@ button, .btn {
   margin-top: 30px;
 }
 
-.motto{
+.motto {
   font-size: 20px;
   margin-bottom: 35px;
 }
 
-.sub-heading{
+.sub-heading {
   font-size: 20px;
   margin-top: -50px;
   color: white;
@@ -124,7 +150,7 @@ button, .btn {
 
 // }
 
-.stats  {
+.stats {
   margin-top: 60px;
   width: 80%;
   display: flex;
@@ -139,16 +165,20 @@ button, .btn {
 
 }
 
-.stats p{
+.stats p {
   color: #D9EDEF;
 
 }
-.stat-1,.stat-2,.stat-3 {
+
+.stat-1,
+.stat-2,
+.stat-3 {
   flex-grow: 1;
   text-align: center;
 }
 
-.stat-1, .stat-2 {
+.stat-1,
+.stat-2 {
   border-right: 2px solid lightgrey;
 
 
