@@ -4,7 +4,7 @@ class ConsultationsController < ApplicationController
 
   def index
     @consultation = Consultation.new
-    @consultations = current_user.consultations
+    @consultations = Consultation.all
   end
 
   def show

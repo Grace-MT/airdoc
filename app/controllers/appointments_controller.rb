@@ -19,7 +19,7 @@ class AppointmentsController < ApplicationController
   end
 
   def index
-    @appointments = Appointment.all
+    @appointments = current_user.appointments
     @doctors_appointments = []
     @appointments.each do |appointment|
       consultation = appointment.consultation
